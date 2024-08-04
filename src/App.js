@@ -1,9 +1,9 @@
-import displayName from ""; 
+import DisplayName from "./component/displayName.jsx"; 
 
 function App() {
   return (
     <>
-     Hello World !!
+     <DisplayName />
     </>
   );
 }
