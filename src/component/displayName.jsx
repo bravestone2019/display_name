@@ -1,18 +1,28 @@
-function displayName () {
-return (
+import React, { useState } from 'react';
+
+function DisplayName() {
+  const [firstName, setFirstName] = useState('');
+  const [lastName, setLastName] = useState('');
+  const [fullName, setFullName] = useState('');
+  const [submitted, setSubmitted] = useState(false);
+
+  const handleSubmit = ( event ) => {
+    event.preventDefault();
+      setFullName(`${firstName} ${lastName}`);
+      setSubmitted(true);
+  };
+
+  return (
     <div>
-        <h2>Full Name Display</h2>
-        {/* <h3><span>First Name:<input/></span></h3>
-        <span><h3>Last Name:<input/></h3></span>
-        <button>Submit</button> */}
-         <form>
+      <h1>Full Name Display</h1>
+      <form onSubmit={handleSubmit}>
         <div>
           <label>
             First Name:
             <input 
               type="text" 
-            //   value={firstName} 
-            //   onChange={(e) => setFirstName(e.target.value)} 
+              value={firstName} 
+              onChange={(event) => setFirstName(event.target.value)} 
             />
           </label>
         </div>
@@ -21,8 +31,8 @@ return (
             Last Name:
             <input 
               type="text" 
-            //   value={lastName} 
-            //   onChange={(e) => setLastName(e.target.value)} 
+              value={lastName} 
+              onChange={(event) => setLastName(event.target.value)} 
             />
           </label>
         </div>
@@ -30,8 +40,13 @@ return (
           <button type="submit">Submit</button>
         </div>
       </form>
+      {submitted && (
+        <div style={{ marginTop: '10px'}}>
+          <h3>Full Name: {fullName}</h3>  
+        </div>
+      )}
     </div>
-);
+  );
 }
 
-export default displayName;
+export default DisplayName;
