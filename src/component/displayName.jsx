@@ -23,6 +23,7 @@ function DisplayName() {
               type="text" 
               value={firstName} 
               onChange={(event) => setFirstName(event.target.value)} 
+              required
             />
           </label>
         </div>
@@ -33,6 +34,7 @@ function DisplayName() {
               type="text" 
               value={lastName} 
               onChange={(event) => setLastName(event.target.value)} 
+              required
             />
           </label>
         </div>
